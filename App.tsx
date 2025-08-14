@@ -12,5 +12,5 @@ export default function App() {
   const colorScheme = useColorScheme();
   const theme = useMemo(() => (colorScheme === 'dark' ? DarkTheme : DefaultTheme), [colorScheme]);
 
-  return <Navigation theme={theme} />;
+  return <Navigation theme={DefaultTheme} />;
 }
