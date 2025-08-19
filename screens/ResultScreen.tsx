@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, ImageBackground } from 'react-native';
 
 export default function ResultScreen({ route }: any) {
   const { volume } = route.params;
@@ -31,17 +31,23 @@ export default function ResultScreen({ route }: any) {
   ];
 
   return (
-    <ScrollView className="flex-1 bg-gray-50 p-4">
-      <Text className="mb-4 text-2xl font-bold text-gray-800">Resultado dos Cálculos</Text>
+    <ImageBackground
+      source={require('../assets/bg2.jpg')}
+      className="h-100 flex-1"
+      resizeMode="cover"
+      resizeMethod="scale">
+      <ScrollView className="flex-1  p-4">
+        <Text className="mb-4 text-2xl font-bold text-white">Resultado dos Cálculos</Text>
 
-      {resultados.map((item, index) => (
-        <View
-          key={index}
-          className="mb-3 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-          <Text className="font-medium text-gray-600">{item.label}</Text>
-          <Text className="text-lg font-bold text-gray-800">{item.valor}</Text>
-        </View>
-      ))}
-    </ScrollView>
+        {resultados.map((item, index) => (
+          <View
+            key={index}
+            className="mb-3 rounded-2xl border border-gray-200 bg-white p-4 opacity-75 shadow-sm">
+            <Text className="font-medium text-gray-600">{item.label}</Text>
+            <Text className="text-lg font-bold text-gray-800">{item.valor}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </ImageBackground>
   );
 }
