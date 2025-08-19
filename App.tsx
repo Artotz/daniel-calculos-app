@@ -1,16 +1,17 @@
-import './global.css';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import ResultScreen from './screens/ResultScreen';
 
-import { DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { useColorScheme } from 'react-native';
-import { useMemo } from 'react';
-
-import 'react-native-gesture-handler';
-
-import Navigation from './navigation';
+const Stack = createStackNavigator();
 
 export default function App() {
-  const colorScheme = useColorScheme();
-  const theme = useMemo(() => (colorScheme === 'dark' ? DarkTheme : DefaultTheme), [colorScheme]);
-
-  return <Navigation theme={DefaultTheme} />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Cálculo' }} />
+        <Stack.Screen name="Result" component={ResultScreen} options={{ title: 'Resultado' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
