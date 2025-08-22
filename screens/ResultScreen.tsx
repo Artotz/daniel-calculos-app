@@ -23,6 +23,25 @@ const descricoes: Record<string, string> = {
   custoPorToneladaHora: 'CustoHora / PesoHora\nValor gasto com combustível por tonelada hora.',
 };
 
+// ...
+
+// Unidades de cada saída
+const unidades: Record<string, string> = {
+  volumeEfetivo: 'm³',
+  massaEfetiva: 'kg',
+  volumeCarregado: 'm³',
+  massaCarregada: 'kg',
+  viagensHora: 'viagens/h',
+  volumeHora: 'm³/h',
+  pesoHora: 'kg/h',
+  eficiencia: 't/L',
+  custoHora: 'R$/h',
+  custoDia: 'R$/dia',
+  custoMes: 'R$/mês',
+  custoPorM3: 'R$/m³',
+  custoPorToneladaHora: 'R$/t.h',
+};
+
 export default function ResultScreen({ route }: any) {
   const input = route.params;
   const output = calcularSaidas(input);
@@ -53,7 +72,9 @@ export default function ResultScreen({ route }: any) {
               </TouchableOpacity>
             </View>
 
-            <Text className="mt-1 text-xl font-bold text-[#231f1e]">{valor.toFixed(2)}</Text>
+            <Text className="mt-1 text-xl font-bold text-[#231f1e]">
+              {valor.toFixed(2)} {unidades[key] ?? ''}
+            </Text>
 
             {/* Tooltip */}
             {tooltipKey === key && (
