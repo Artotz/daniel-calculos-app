@@ -11,5 +11,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  corePlugins: {
+    preflight: false, // desativa reset padrão que pode conflitar
+  },
   plugins: [],
 };
