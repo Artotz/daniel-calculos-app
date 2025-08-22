@@ -13,11 +13,18 @@ export default function App() {
         initialRouteName="Home"
         screenOptions={{
           animation: 'default',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Daniel Cálculos 🔥' }}
+          options={{ title: 'Cálculo de Produção' }}
         />
         <Stack.Screen name="Result" component={ResultScreen} options={{ title: 'Resultado' }} />
       </Stack.Navigator>
